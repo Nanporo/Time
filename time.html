@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Time</title>
+	<meta charset="UTF-8" />
+	<style type="text/css">
+	body{
+		background: #000000;
+	}
+	.time{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translateX(-50%) translateY(-50%);
+		color: #FFFFFF;
+		font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+		font-size: 50px;
+		padding: 0px 20px 0px 20px;
+	}
+	</style>
+</head>
+
+<body>
+	<div>TEA LIVE</div>
+	<div id="Time" class="time"></div>
+	<script type="text/javascript">
+		function showTime(){
+			var date = new Date();
+			var h = date.getHours();
+			var m = date.getMinutes();
+			var s = date.getSeconds();
+			var session = "AM";
+			if (h == 0) {
+				h = 12;
+			}
+			if (h > 12) {
+				h = h - 12;
+				session = "PM";
+			}
+			if (h < 10) {
+				h = "0" + h;
+			}
+			if (m < 10) {
+				m = "0" + m;
+			}
+			if (s < 10) {
+				s = "0" + s;
+			}
+			var time = h + ":" + m + ":" + s + " " + session + " TEA LIVE";
+			document.getElementById("Time").innerText = time;
+			document.getElementById("Time").textContent = time;
+			setTimeout(showTime,500);
+		}
+		showTime();
+	</script>
+</body>
+</html>
